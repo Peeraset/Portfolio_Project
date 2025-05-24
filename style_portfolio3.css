@@ -1,0 +1,160 @@
+:root{
+    --main-color:#34495e;
+    --accent-color:#b82323;
+    --text-color:#333333;
+    --bg-color:#f5f5f5;
+    --highlight-color:#f1c40f;
+
+}
+
+/*พื้นฐานโครงสร้างเว็บ*/
+html{
+    scroll-behavior: smooth; /*ทำให้เวลสกดลิงก์ Scroll จะไม่กระชากเราไปดู แต่จะเลื่อนไปดูแบบ Smooth*/
+}
+
+body{
+    font-family:  'Prompt', sans-serif ; /*แบบอักษรเรียบง่าย ใช้ง่ายกับทุกเบราว์เซอร์ */
+    line-height: 1.6; /* ระยะห่างระหว่างบรรทัด ให้อ่านง่าย */
+    margin: 0;
+    padding: 0;
+    background:var(--bg-color) ; /* bg พื้นหลังทั้งหน้า*/
+    color:var(--text-color);
+}
+
+/*Header*/
+header{
+    background: linear-gradient(135deg, #410000,#850000);/*สีพื้นหลังหัวเว็บ ถ้าใส่ linear-gradient ต้องใช้ background*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color:white; /*ตัวอักษรสีขาว อ่านง่ายบนพื้นเข้ม */
+    text-align: center; /*จัดข้อความทั้งหมดให้อยู่ตรงกลาง*/
+    padding: 1.5rem 0; /*ระยะห่างบน-ล่าง rem, ซ้าย-ขวา rem*/
+    position: fixed; /*ทำให้องค์ประกอบลอยอยู่กับที่ ไม่เลื่อนตามเนื้อหา */
+    width: 100%; /*กำหนดให้กว้างเต็มหน้าจอ เพื่อไม่ให้มีช่องว่างข้างๆ ใช้คู่กับ position: fixed เพื่อให้เมนู พาดยาวเต็มแนวบน */
+    top:0; /* ติดขอบด้านบนของหน้าจอ */
+    z-index: 10; /*ควบคุมลำดับการแสดงผล อันไหนอยู่บนอยู่ล่าง ในที่นี้ยิ่งค่ามากจะอยู่หน้าสุด*/
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    
+}
+
+header:hover{
+    filter: brightness(1.1);
+}
+header h1{
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+}
+/*Navigation จำให้ได้ แบบปุ่มแคปซูล*/ 
+nav a {
+  color: white;
+  text-decoration:none ;
+  margin: 0 0.5rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  padding: 0.4rem 1rem;
+  transition: color 0.3s ease;
+  background-color: #34495e;
+  border-radius: 999px;
+  transition: all 0.3 ease;
+}
+
+nav a:hover{
+    background-color: var(--accent-color);
+    color: rgb(31, 31, 31);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+/*ปุ่มที่กดแล้วมี Animation*/
+nav a:active {
+  transform: scale(0.95);
+  background-color: #2c3e50;
+}
+
+
+/* พื้นที่เนื้อหา*/
+main{
+    margin-top: 225px; /* ต้องเท่ากับความสูงของ Header คำนวนจาก ความสูงรวมของ Header = padding-top + ความสูง Content + padding-bottem */
+}
+section{
+    padding: 2rem; /*ระยะห่างรอบๆ แต่ละส่วน Section */
+    max-width: 800px; /*ความกว้างสูงสุดของเนื้อหา */
+    margin: auto; /*จัดให้อยู่ตรงกลางอัตโนมัติ*/
+    scroll-margin-top: 225px; /* ช่วยปรับ positon:fixed ให้ลิงก์ที่กดเลื่อนไปยัง section ไม่โดน header บังข้อความ ระยะห่างเท่ากับหรือมากกว่า header สำคัญมากสำหรับ anchor link */
+}
+
+section a{
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight:bold
+}
+
+section a:hover{
+    text-decoration: underline;
+    color:e67e22;
+}
+
+h2{
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block; /*ทำให้เพื่อให้ border-bottom พอดีกับความกว้างของข้อความ ถ้าไม่ใส่ inline-block เส้นจะยาว ทั้งบรรทัด(ดูไม่สวย)*/
+    margin-bottom: 1rem;
+}
+
+
+/*โปรเจกต์*/
+.project-list{
+    display: flex; /*ใช้ Flexbox แสดงโปรเจกต์เป็นแถว*/
+    flex-wrap: wrap; /*ให้บรรทัดใหม่เมื่อพื้นที่ไม่พอ */
+    gap: 1rem; /*่ช่องว่างระหว่างกล่องโปรเจกต์*/
+}
+
+.project-card{
+    background: white; /* กล่องพื้นหลังสีขาว*/
+    padding: 1rem; /*ช่องว่างภายในกล่อง*/
+    margin: 15px; /*จัดระยะบน-ล่าง,ซ้าย-ขวา ให้แคบลงมาหน่อย เหมือน ย่อให้ดูง่ายขึ้น*/
+    border-radius: 8px; /*มุมมน*/
+    flex: 1 1 45%; /*ขนาดกล่อง:1 ช่อง , สามารถขยายได้ หดได้ , ตามพื้นที่จอ*/
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+
+.project-card:hover{
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+.project-card  img{
+    width: 100%;
+    border-radius: 8px;
+    
+}
+
+/*ส่วนท้าย*/
+footer{
+    text-align: center; /*จัดข้อความให้อยู่ตรงกลาง*/
+    padding: 1rem; /*ระยะห่างภายในกล่องข้อความ*/
+    background: linear-gradient(to right,#2c3e50, #34495e);
+    color: white;
+
+}
+
+/*Responsive*/
+@media(max-width: 768px) {
+    .project-list {
+        flex-direction: column;
+    }
+    
+    .project-card{
+        flex: 1 1 100%;
+    }
+    header,section {
+        padding: 1rem;
+    }
+}
+
+
