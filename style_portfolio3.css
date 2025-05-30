@@ -1,5 +1,5 @@
 :root{
-    --main-color:#34495e;
+    --footer-color:#34495e;
     --accent-color:#b82323;
     --text-color:#333333;
     --bg-color:#f5f5f5;
@@ -9,7 +9,7 @@
 
 /*พื้นฐานโครงสร้างเว็บ*/
 html{
-    scroll-behavior: smooth; /*ทำให้เวลสกดลิงก์ Scroll จะไม่กระชากเราไปดู แต่จะเลื่อนไปดูแบบ Smooth*/
+    scroll-behavior: smooth; /*ทำให้เวลากดลิงก์ที่มีตัว # Scroll จะไม่กระชากเราไปดู แต่จะเลื่อนไปดูแบบ Smooth*/
 }
 
 body{
@@ -34,7 +34,7 @@ header{
     width: 100%; /*กำหนดให้กว้างเต็มหน้าจอ เพื่อไม่ให้มีช่องว่างข้างๆ ใช้คู่กับ position: fixed เพื่อให้เมนู พาดยาวเต็มแนวบน */
     top:0; /* ติดขอบด้านบนของหน้าจอ */
     z-index: 10; /*ควบคุมลำดับการแสดงผล อันไหนอยู่บนอยู่ล่าง ในที่นี้ยิ่งค่ามากจะอยู่หน้าสุด*/
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /*0 ตัวแรก offset-x | 2px offset-y | 10px blur-raidius | rgba สีของเงา a = alpha (ค่าความโปร่งใส่) */
     
 }
 
@@ -98,7 +98,7 @@ section a:hover{
 
 h2{
     color: var(--accent-color);
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color); /*2px = หนาเท่าไร solid = เส้นทึบ var = อ้างอิงสี*/
     display: inline-block; /*ทำให้เพื่อให้ border-bottom พอดีกับความกว้างของข้อความ ถ้าไม่ใส่ inline-block เส้นจะยาว ทั้งบรรทัด(ดูไม่สวย)*/
     margin-bottom: 1rem;
 }
