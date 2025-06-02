@@ -19,6 +19,9 @@ body{
     padding: 0;
     background:var(--bg-color) ; /* bg พื้นหลังทั้งหน้า*/
     color:var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /*Header*/
@@ -47,7 +50,7 @@ header h1{
 }
 /*Navigation จำให้ได้ แบบปุ่มแคปซูล*/ 
 nav a {
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration:none ;
   margin: 0 0.5rem;
   position: relative;
@@ -55,14 +58,14 @@ nav a {
   padding-bottom: 4px;
   padding: 0.4rem 1rem;
   transition: color 0.3s ease;
-  background-color: #34495e;
+  background-color: #ffffff;
   border-radius: 999px;
-  transition: all 0.3 ease;
+  transition: all 0.3s ease;
 }
 
 nav a:hover{
     background-color: var(--accent-color);
-    color: rgb(31, 31, 31);
+    color: rgb(255, 255, 255);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
@@ -76,6 +79,7 @@ nav a:active {
 
 /* พื้นที่เนื้อหา*/
 main{
+    flex: 1;
     margin-top: 225px; /* ต้องเท่ากับความสูงของ Header คำนวนจาก ความสูงรวมของ Header = padding-top + ความสูง Content + padding-bottem */
 }
 section{
@@ -93,7 +97,7 @@ section a{
 
 section a:hover{
     text-decoration: underline;
-    color:e67e22;
+    color:#000000;
 }
 
 h2{
